@@ -1,0 +1,20 @@
+version: '3'
+services:
+  spring-boot-grafana-integration:
+    image: grajamca/spring-boot-grafana-integration:1.0.0
+    ports:
+      - "8888:8888"
+  prometheus:
+    image: prom/prometheus
+    hostname: prometheus
+    volumes:
+      - ./deployment/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+  grafana:
+    image: grafana/grafana
+    hostname: grafana
+    ports:
+      - 3000:3000
+    env_file:
+      - ./deployment/grafana.env
