@@ -26,4 +26,4 @@ scrape_configs:
     metrics_path: /prometheus
 
     static_configs:
-      - targets: [ 'web:8888' ]
+      - targets: [ 'spring-boot-grafana-integration:8888' ]
